@@ -1,0 +1,16 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    New Page
+{% endblock%}
+
+{% block body %}
+    {% if error %}
+    <p style="color: red;"> {{ error }}</p>
+    {% endif %}
+    <form action="{% url 'new_page' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save Entry" style="display: block; margin: 0 auto; width: 50%; font-size: 1.5rem;">
+    </form>
+{% endblock %}

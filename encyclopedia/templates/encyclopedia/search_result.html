@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ search }}
+{% endblock %}
+
+{% block body %}
+
+<h1> Serach Result </h1>
+
+{% if entries %}    
+<ul>
+    {% for entry in entries %}
+    <li><a href="{% url 'entry_page' entry %}"> {{ entry }} </a></li>
+    {%endfor%}
+        
+</ul>
+    
+    {% else %}
+    <h2> No entry is found </h2>
+    {% endif %}
+
+{% endblock %}
